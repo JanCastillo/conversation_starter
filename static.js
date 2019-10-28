@@ -3,29 +3,28 @@ var items2 = data.phrasal_verbs;
 var items3 = data.agree;
 var items4 = data.disagree;
 
-var button1 = d3.select("#questions");
-var button2 = d3.select("#verbs");
-var button3 = d3.select("#agree");
-var button4 = d3.select("#disagree");
+  function clear_data(){
+    d3.select("#list1").selectAll("li").remove();
+    d3.select("#list1").selectAll("br").remove();
+    d3.select("#list2").selectAll("table").remove();
+    d3.select("#list2").selectAll("br").remove();
+    d3.select("#list3").selectAll("table").remove();
+    d3.select("#list3").selectAll("br").remove();
+  }
 
-button1.on("click", function() {
-    d3.event.preventDefault();
-    let i;
-    d3.select("#list1").append("br");
-    for (i = 0; i < 5; i++) { 
+  function random_question(){
+    for (i = 0; i < 1; i++) { 
         let random = Math.floor((Math.random() * items1.length));
         let randomItem = items1[random];
         let li1 = d3.select("ul").append("li");
         li1.text(randomItem);
-        d3.select("ul").append("hr");
     }
-    d3.select("ul").append("br");
-  });
+    d3.select("#list1").append("br");
+  }
 
-button2.on("click", function() {
-    d3.event.preventDefault();
+  function random_verbs(){
     let i;
-    let verbs = d3.select("#list1")
+    let verbs = d3.select("#list2")
     let table = verbs.append("table")
     verbs.append("br")
     let tbody = table.append("tbody")
@@ -36,11 +35,10 @@ button2.on("click", function() {
         let cell = row.append("td")
         cell.text(randomItem)
     }
-  });
+  }
 
-  button3.on("click", function() {
-    d3.event.preventDefault();
-    let expression = d3.select("#list2")
+  function agree(){
+    let expression = d3.select("#list3")
     let table = expression.append("table")
     expression.append("br")
     let tbody = table.append("tbody")
@@ -49,11 +47,10 @@ button2.on("click", function() {
         let row = tbody.append("tr")
         let cell = row.append("td")
         cell.text(randomItem)
-  });
+  }
 
-  button4.on("click", function() {
-    d3.event.preventDefault();
-    let expression = d3.select("#list2")
+  function disagree(){
+    let expression = d3.select("#list3")
     let table = expression.append("table")
     expression.append("br")
     let tbody = table.append("tbody")
@@ -62,4 +59,4 @@ button2.on("click", function() {
         let row = tbody.append("tr")
         let cell = row.append("td")
         cell.text(randomItem)
-  });
+  }

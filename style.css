@@ -1,0 +1,17 @@
+.btn{
+  background-color: #145084;
+}
+
+.btn-primary {
+  color: #ffffff;
+  background-color: #df691a;
+  border-color: transparent;
+}
+
+table, .table {
+  font-size: 15px;
+}
+
+.container{
+  margin-left:0px;
+}
